@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "nodemon",
     "socket:test": "tsx scripts/socket-test-client.ts",
     "load:test": "k6 run load-tests/k6/transactions-load-test.js",
     "load:test:1000": "k6 run -e VUS=1000 -e DURATION=30s load-tests/k6/transactions-load-test.js",
@@ -30,6 +30,7 @@
     "@types/express": "^5.0.6",
     "@types/multer": "^2.2.0",
     "@types/node": "^25.5.2",
+    "nodemon": "^3.1.14",
     "tsx": "^4.21.0",
     "typescript": "^6.0.2"
   }
