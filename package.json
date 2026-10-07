@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "node api.js && nodemon",
     "socket:test": "tsx scripts/socket-test-client.ts",
     "load:test": "k6 run load-tests/k6/transactions-load-test.js",
     "load:test:1000": "k6 run -e VUS=1000 -e DURATION=30s load-tests/k6/transactions-load-test.js",
-    "build": "tsc",
-    "start": "node dist/server.js",
+    "build": "node api.js && tsc",
+    "start": "node api.js && node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
