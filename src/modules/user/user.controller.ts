@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import HTTP_STATUS from "../../constants/statusCodes";
 import { AppError } from "../../core/errors/AppError";
 import { ResponseBuilder } from "../../core/utils/apiResponse";
 import { UserService } from "./user.service";
@@ -20,7 +21,9 @@ export class UserController {
 
     const profile = await this.userService.getProfile(req.user.id);
     res
-      .status(200)
-      .json(ResponseBuilder.success("Profile fetched successfully", profile));
+      .status(HTTP_STATUS.OK)
+      .json(
+        ResponseBuilder.success("Profile fetched successfully", profile, HTTP_STATUS.OK),
+      );
   };
 }
